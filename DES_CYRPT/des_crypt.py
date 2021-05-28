@@ -139,7 +139,7 @@ class SubKey:
             46,42,50,36,29,32]
 
 
-    # 秘密鍵(56bit)をp1で縮小転置する
+    # 秘密鍵(56bit)をp1で転置(56bit)する
     def pc1(self, secret_key:list) -> Tuple[list, list]:
         c0 = []
         d0 = []
@@ -150,7 +150,7 @@ class SubKey:
                 d0.append(secret_key[SubKey.pc1_table[i]-1])
         return c0, d0
 
-    # サブ鍵(56bit)をp2で縮小転置する
+    # サブ鍵(56bit)をp2で縮小転置(48bit)する
     def pc2(self, c_d_list:list) -> list:
         k = []
         for i in range(48):
